@@ -107,22 +107,30 @@
                         <!-- card item -->
                         <div class="card-blog single-post card-item active" id="blog" style="background-image:url(images/background/2.jpg)">
                             <div class="card-inner">
-                                <h4 class="title">
-                                    基于增强现实的EWIS维修支持系统</h4>
+                                <h4 class="title">基于增强现实的EWIS维修支持系统</h4>
                                 <div class="news-block">
                                     <div class="inner-box">
                                         <div class="image">
-                                            <!-- <img src="images/resource/blog-1.jpg" alt=""> -->
-                                            <video width="658" height="444" src="video/first.mp4" poster="images/resource/blog-1.jpg" autoplay="autoplay" muted="muted" preload="auto" loop></video>
+                                            <h4>由于项目涉及保密，不视频演示具体项目功能</h4>
+                                            <div class="gallery">
+                                                <img id="imgitem" src="images/gallery/pic1.png" alt="">
+                                                
+                                                <ul class="controls">
+                                                    <li class="active">1</li>
+                                                    <li>2</li>
+                                                    <li>3</li>
+                                                </ul>
+                                            </div> 
                                         </div>
                                         <div class="date"><strong>02</strong> <br>Sep</div>
                                         <div class="lower-content">
                                             <h4>Let’s Talk About Design and Development</h4>
                                             <div class="post-meta">by Mr liu  /  <span>Design and Development</span></div>
                                             <div class="text">
-                                                <p>开发目的：提供一个高效、精准且用户友好的汽车知识智能问答平台，帮助维修人员快速解决各种汽车维修相关的问题。</p>
-                                                <p>该软件内置全面的汽车维修知识库，包括常见故障排除、保养指南、零部件信息等。 用户登录注册：用户需要注册后才能登录该系统 图谱的展示和分析：提供直观、友好的知识图谱界面 实体关系检索：根据汽车故障码来检索知识并展示检索到的知识图谱。包括排故流程、维修知识、应用范围等 智能问答：用户输入症状描述或故障代码，系统根据内置知识库和历史数据进行分析，提供可能的故障原因和解决方案</p>
-                                                <p>技术路线：使用flask框架搭建后端，使用neo4j数据库存储知识图谱，使用echarts进行图谱可视化，使用python进行后端数据处理。</p>
+                                                <p>传统的EWIS维修工作由于复杂的维修环境、纸质或传统的IETM系统中技术资料查阅繁杂等问题。导致EWIS维修过程危险性高、排查故障耗时长、维修工作效率低等问题。针对现有的EWIS维修工作存在的问题，本文EWIS维修为背景，新能源汽车为研究对象，研究并实现了一套基于增强现实的EWIS辅助维修系统</p>                                                    
+                                                <p>该系统针对维修过程存在维修环境复杂容易在实训过程造成安全隐患的问题，通过使用增强现实技术，将虚拟的EWIS设备和柔性线缆等注册到现实场景中，降低维修人员的安全隐患。</p>
+                                                <p>针对维修过程中维修人员依靠维修经验或查询维修手册等传统方法造成的维修效率低等问题，本文对辅助维修过程各阶段涉及的多源异构数据进行分析，构建了增强现实辅助维修领域本体，利用领域本体对异构系统进行实体抽取，并构建了EWIS维修知识图谱作为EWIS辅助维修系统的数据支撑。</p>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -130,9 +138,11 @@
                                 <!-- share box -->
                                 <ul class="share-box">
                                     <li><strong>Tags:</strong></li>
-                                    <li><a href="#">知识图谱,</a></li>
-                                    <li><a href="#">智能问答,</a></li>
-                                    <li><a href="#">flask框架</a></li>
+                                    <li><a href="#">智能维修,</a></li>
+                                    <li><a href="#">增强现实,</a></li>
+                                    <li><a href="#">EWIS,</a></li>
+                                    <li><a href="#">位姿估计,</a></li>
+                                    <li><a href="#">知识图谱</a></li>
                                 </ul>
                                 <!-- Comments Area -->
                                 <div class="comments-area">
@@ -145,9 +155,9 @@
                                             <div class="comment-inner">
                                                 <div class="comment-info clearfix"><strong>Neil Roberts</strong><div class="comment-time">26 Nov,2018 At 8:30am</div></div>
                                                 <div class="text">
-                                                    <p>项目成果：软件著作权</p>
-                                                    <p>开发环境：pycharm python mysql8.0 neo4j Flask框架 jquery等。
-                                                    </p><p> 软件运行支撑环境：navicat、neo4j Desktop、pytorch、python3.8、pycharm</p>
+                                                    <p>项目成果：专利 论文在投</p>
+                                                    <p>开发硬件环境：Hololens2头盔等 两台电脑(win环境和linux环境)</p>
+                                                    <p>开发软件环境：pycharm、 vs2019、pytorch、neo4j、vs2019、hsg、osg等。</p>
                                                 </div>
                                                 <a class="comment-reply" href="#"><span class="icon fa fa-mail-reply"></span> Reply</a>
                                             </div>
@@ -197,7 +207,32 @@
 
 </div>
 <!--End pagewrapper-->
-
+<script>
+     //实现滚动效果
+     const container = document.querySelector('.gallery')
+        const lis = document.querySelectorAll('.controls li') 
+        var imgitem = document.getElementById('imgitem');
+        var viewHeight = null //声明页面高度
+       
+ 
+        //绑定点击事件
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].onclick = function () {
+                viewHeight = document.body.clientHeight
+                index = i
+                changeColor(index)
+                container.style.top = -index * viewHeight + 'px'
+                imgitem.src='images/gallery/pic'+(index+1)+'.png'
+            }
+        }
+        //改变小li颜色
+        function changeColor(index) {
+            for (var j = 0; j < lis.length; j++) {
+                lis[j].className = ''
+            }
+            lis[index].className = 'active'
+        }
+</script>
 
 <script src="js/jquery.js"></script> 
 
